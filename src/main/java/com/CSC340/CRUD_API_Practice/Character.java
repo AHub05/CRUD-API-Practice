@@ -13,7 +13,7 @@ public class Character {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long characterId;
+    private Long characterId;
 
     @Column(nullable = false)
     private String characterName;
@@ -37,7 +37,7 @@ public class Character {
         this.occupation = occupation;
     }
 
-    public Character(long Id, String name, String description, String address, String occupation) {
+    public Character(Long Id, String name, String description, String address, String occupation) {
         this.characterId = Id;
         this.characterName = name;
         this.description = description;
@@ -45,11 +45,11 @@ public class Character {
         this.occupation = occupation;
     }
 
-    public long getCharacterId() {
+    public Long getCharacterId() {
         return characterId;
     }
     
-    public void setCharacterId(long id) {
+    public void setCharacterId(Long id) {
         this.characterId = id;
     }
 
