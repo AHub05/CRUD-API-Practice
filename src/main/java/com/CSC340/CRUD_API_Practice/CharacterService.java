@@ -17,7 +17,7 @@ public class CharacterService {
         return CHARACTERREPOSITORY.findAll();
     }
 
-    public Character saveCharacter(Character character) {
+    public Character createCharacter(Character character) {
         return CHARACTERREPOSITORY.save(character);
     }
 
