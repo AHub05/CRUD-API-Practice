@@ -16,7 +16,7 @@ public class Character {
     private Long characterId;
 
     @Column(nullable = false)
-    private String characterName;
+    private String name;
 
     @Column(nullable = false)
     private String description;
@@ -31,7 +31,7 @@ public class Character {
     }
 
     public Character(String name, String description, String address, String occupation) {
-        this.characterName = name;
+        this.name = name;
         this.description = description;
         this.address = address;
         this.occupation = occupation;
@@ -39,7 +39,7 @@ public class Character {
 
     public Character(Long Id, String name, String description, String address, String occupation) {
         this.characterId = Id;
-        this.characterName = name;
+        this.name = name;
         this.description = description;
         this.address = address;
         this.occupation = occupation;
@@ -53,12 +53,12 @@ public class Character {
         this.characterId = id;
     }
 
-    public String getCharacterName() {
-        return characterName;
+    public String getName() {
+        return name;
     }
 
-    public void setCharacterName(String name) {
-        this.characterName = name;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDescription() {

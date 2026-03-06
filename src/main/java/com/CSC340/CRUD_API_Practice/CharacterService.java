@@ -28,7 +28,7 @@ public class CharacterService {
     public Character updateCharacter(Long id, Character updatedCharacter) {
         return CHARACTERREPOSITORY.findById(id)
             .map(character -> {
-                character.setCharacterName(updatedCharacter.getCharacterName());
+                character.setName(updatedCharacter.getName());
                 character.setDescription(updatedCharacter.getDescription());
                 character.setAddress(updatedCharacter.getAddress());
                 character.setOccupation(updatedCharacter.getOccupation());

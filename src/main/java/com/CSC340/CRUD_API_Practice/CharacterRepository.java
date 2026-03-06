@@ -14,7 +14,7 @@ public interface CharacterRepository extends JpaRepository<Character, Long>{
     @Query(value = "SELECT c.* FROM characters c WHERE c.occupation LIKE %?%", nativeQuery = true)
     List<Character> findByOccupation(String occupation);
 
-    @Query(value = "SELECT s.* FROM characters s WHERE s.address LIKE %?%", nativeQuery = true)
+    @Query(value = "SELECT c.* FROM characters c WHERE c.address LIKE %?%", nativeQuery = true)
     List<Character> findByAddress(String address);
 
 
