@@ -7,22 +7,20 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 <body>
+    <!-- Navbar -->
     <div class="container" id="navbar">
         <div class="container-fluid">
             <nav class="navbar navbar-expand-lg">
-                <a class="navbar-brand" href="index.html"><b>Phonebook</b></a>
+                <a class="navbar-brand" href="/characters"><b>Phonebook</b></a>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/characters">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="character-details.ftlh">Details</a>
+                        <a class="nav-link" href="/characters">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/characters/about">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="new-character-form.html">Add a Character</a>
+                        <a class="nav-link" href="/characters/add">Add a Character</a>
                     </li>
                 </ul>
             </nav>
@@ -49,10 +47,10 @@
         </div>
         <div class="row row-cols-3 g-2">
             <#list characterList as character>
-                <a href="details.html">
+                <a href="/characters/${character.characterId?c}">
                     <div class="col">
                         <div class="card shadow-sm" style="background-color: #393E46;">
-                            <img src="Images/${character.name}.png" class="img-thumbnail" alt="Clint portait">
+                            <img src="/profile-pictures/${character.profilePicturePath}" class="img-thumbnail" alt="Clint portait">
                             <div class="card-body">
                                 <h4 style="color: #DFD0B8;">${character.name}</h4>
                                 <p style="color: #DFD0B8;">${character.occupation}</p>
@@ -61,72 +59,6 @@
                     </div>
                 </a>
             </#list>
-            <!-- <a href="details.html">
-                <div class="col">
-                    <div class="card shadow-sm" style="background-color: #393E46;">
-                        <img src="Images/Clint.png" class="img-thumbnail" alt="Clint portait">
-                        <div class="card-body">
-                            <h4 style="color: #DFD0B8;">Clint</h4>
-                            <p style="color: #DFD0B8;">Blacksmith</p>
-                        </div>
-                    </div>
-                </div>
-            </a>
-            <a href="details.html">
-                <div class="col">
-                    <div class="card shadow-sm" style="background-color: #393E46;">
-                        <img src="Images/Lewis.png" class="img-thumbnail" alt="Lewis portait">
-                        <div class="card-body">
-                            <h4 style="color: #DFD0B8;">Lewis</h4>
-                            <p style="color: #DFD0B8;">Mayor</p>
-                        </div>
-                    </div>
-                </div>
-            </a>
-            <a href="details.html">
-                <div class="col">
-                    <div class="card shadow-sm" style="background-color: #393E46;">
-                        <img src="Images/Pierre.png" class="img-thumbnail" alt="Pierre portait">
-                        <div class="card-body">
-                            <h4 style="color: #DFD0B8;">Pierre</h4>
-                            <p style="color: #DFD0B8;">Store Owner</p>
-                        </div>
-                    </div>
-                </div>
-            </a>
-            <a href="details.html">
-                <div class="col">
-                    <div class="card shadow-sm" style="background-color: #393E46;">
-                        <img src="Images/Robin.png" class="img-thumbnail" alt="Robin portait">
-                        <div class="card-body">
-                            <h4 style="color: #DFD0B8;">Robin</h4>
-                            <p style="color: #DFD0B8;">Carpenter</p>
-                        </div>
-                    </div>
-                </div>
-            </a>
-            <a href="details.html">
-                <div class="col">
-                    <div class="card shadow-sm" style="background-color: #393E46;">
-                        <img src="Images/Willy.png" class="img-thumbnail" alt="Willy portait">
-                        <div class="card-body">
-                            <h4 style="color: #DFD0B8;">Willy</h4>
-                            <p style="color: #DFD0B8;">Fisherman</p>
-                        </div>
-                    </div>
-                </div>
-            </a>
-            <a href="details.html">
-                <div class="col">
-                    <div class="card shadow-sm" style="background-color: #393E46;">
-                        <img src="Images/Gus.png" class="img-thumbnail" alt="Gus portait">
-                        <div class="card-body">
-                            <h4 style="color: #DFD0B8;">Gus</h4>
-                            <p style="color: #DFD0B8;">Saloon Owner</p>
-                        </div>
-                    </div>
-                </div>
-            </a> -->
         </div>
     </div>
 

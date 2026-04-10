@@ -6,9 +6,15 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "characters")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Character {
     
     @Id
@@ -27,18 +33,9 @@ public class Character {
     @Column(nullable = true)
     private String occupation;
 
-    public Character() {
-    }
+    private String profilePictureString;
 
     public Character(String name, String description, String address, String occupation) {
-        this.name = name;
-        this.description = description;
-        this.address = address;
-        this.occupation = occupation;
-    }
-
-    public Character(Long Id, String name, String description, String address, String occupation) {
-        this.characterId = Id;
         this.name = name;
         this.description = description;
         this.address = address;
@@ -85,4 +82,10 @@ public class Character {
         this.occupation = occupation;
     }
 
+    public void setProfilePicturePath(String path) {
+        this.profilePictureString = path;
+    }
+    public String getProfilePicturePath() {
+        return profilePictureString;
+    }
 }

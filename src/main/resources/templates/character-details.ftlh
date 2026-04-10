@@ -3,81 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Details - Stardew Phonebook</title>
+    <title>Details: ${character.name}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 <body>
+    <!-- Navbar -->
     <div class="container" id="navbar">
         <div class="container-fluid">
             <nav class="navbar navbar-expand-lg">
-                <a class="navbar-brand" href="index.html"><b>Phonebook</b></a>
+                <a class="navbar-brand" href="/characters"><b>Phonebook</b></a>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
+                        <a class="nav-link" href="/characters">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="details.html">Details</a>
+                        <a class="nav-link" href="/characters/about">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about.html">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="new-character-form.html">Add a Character</a>
+                        <a class="nav-link" href="/characters/add">Add a Character</a>
                     </li>
                 </ul>
             </nav>
         </div>
     </div>
-    
-    <div class="container-fluid pt-4 pb-4 px-2">
-        <div class="row row-cols-3 row-cols bg-body-tertiary">
-            <div class="col text-center"><img src="/Images/Clint.png"></div>
-            <div class="col text-center py-5"><em><b>${character.name}</b></em></div>
-            <div class="col py-3">
-                Occupation: ${character.occupation}<br>
-                Relationship: Single<br>
-                Birthday: Winter 26<br>
-                Location: ${character.address}
+
+    <!-- Character Detail Page -->
+    <div class="container-md mt-5">
+        <div class="row gx-2">
+            <div class="col-md bg-secondary">
+                <img src="/profile-pictures/${character.profilePicturePath}" class="rounded mb-2">
+                <h4><strong>${character.name}</strong></h4>
+                <p class="card-text">Occupation: ${character.occupation}</p>
+                <p class="card-text">Address: ${character.address}</p>
+                <p class="card-text">Bio: ${character.description}</p>
             </div>
-            <div class="col text-center"><img src="/Images/Gus.png"></div>
-            <div class="col text-center py-5"><em><b>Gus</b></em></div>
-            <div class="col py-3">
-                Occupation: Owner of the Stardrop Saloon<br>
-                Relationship: Single<br>
-                Birthday: Summer 8<br>
-                Location: Pelican Town, The Stardrop Saloon
-            </div>
-            <div class="col text-center"><img src="/Images/Lewis.png"></div>
-            <div class="col text-center py-5"><em><b>Lewis</b></em></div>
-            <div class="col py-3">
-                Occupation: Mayor of Pelican Town<br>
-                Relationship: Marnie?<br>
-                Birthday: Spring 7<br>
-                Location: Pelican Town, Mayor's Manor
-            </div>
-            <div class="col text-center"><img src="/Images/Pierre.png"></div>
-            <div class="col text-center py-5"><em><b>Pierre</b></em></div>
-            <div class="col py-3">
-                Occupation: Owns Pierre's General Store<br>
-                Relationship: Caroline<br>
-                Birthday: Spring 26<br>
-                Location: Pelican Town, Pierre's General Store
-            </div>
-            <div class="col text-center"><img src="/Images/Robin.png"></div>
-            <div class="col text-center py-5"><em><b>Robin</b></em></div>
-            <div class="col py-3">
-                Occupation: Town Carpenter, owns Carpenter's Shop<br>
-                Relationship: Demetrius<br>
-                Birthday: Fall 21<br>
-                Location: The Mountain, 24 Mountain Road
-            </div>
-            <div class="col text-center"><img src="/Images/Willy.png"></div>
-            <div class="col text-center py-5"><em><b>Willy</b></em></div>
-            <div class="col py-3">
-                Occupation: Owns a Fishing Shop<br>
-                Relationship: Single<br>
-                Birthday: Summer 24<br>
-                Location: The Beach, Fish Shop
+            <div class="col">
+                <h4>Character Description</h4>
+                <p>${character.description}</p>
+                <form id="edit-character" action="/characters/update/${character.characterId?c}" method="post" enctype="multipart/form-data">
+                    <input type="text" id="id" name="id" value="${character.characterId?c}" readonly />
+                    <input type="text" id="name" name="name" value="${character.name}" placeholder="Name" />
+                    <input type="text" id="occupation" name="occupation" value="${character.occupation}" placeholder="Job" />
+                    <input type="text" id="address" name="address" value="${character.address}" placeholder="Address" />
+                    <input type="text" id="description" name="description" value="${character.description}" placeholder="Description.." />
+                    <label for="picture" class="form-label"> Picture:</label>
+                    <input type="file" id="picture" name="picture" />
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <div class="alert alert-danger" role="alert">
+                        DELETE CHARACTER
+                        <a style="float: right;" href="/characters/delete/${character.characterId?c}" class="btn btn-danger">Delete</a>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

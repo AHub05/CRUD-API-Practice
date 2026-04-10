@@ -7,22 +7,20 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 <body>
+    <!-- Navbar -->
     <div class="container" id="navbar">
         <div class="container-fluid">
             <nav class="navbar navbar-expand-lg">
-                <a class="navbar-brand" href="index.html"><b>Phonebook</b></a>
+                <a class="navbar-brand" href="/characters"><b>Phonebook</b></a>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
+                        <a class="nav-link" href="/characters">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="details.html">Details</a>
+                        <a class="nav-link" href="/characters/about">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="about.html">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="new-character-form.html">Add a Character</a>
+                        <a class="nav-link" href="/characters/add">Add a Character</a>
                     </li>
                 </ul>
             </nav>
